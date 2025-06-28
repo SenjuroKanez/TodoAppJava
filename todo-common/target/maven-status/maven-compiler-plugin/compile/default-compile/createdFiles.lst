@@ -1,0 +1,10 @@
+com\todoapp\common\dto\TodoDto.class
+com\todoapp\common\model\Category$CategoryBuilder.class
+com\todoapp\common\model\User.class
+com\todoapp\common\model\User$UserBuilder.class
+com\todoapp\common\model\Todo$TodoBuilder.class
+com\todoapp\common\model\Todo.class
+com\todoapp\common\model\Todo$Priority.class
+com\todoapp\common\model\User$ThemePreference.class
+com\todoapp\common\model\Category.class
+com\todoapp\common\dto\TodoDto$TodoDtoBuilder.class

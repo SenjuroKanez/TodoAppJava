@@ -1,0 +1,12 @@
+com\todoapp\web\TodoWebApplication.class
+com\todoapp\web\service\ApiService$4.class
+com\todoapp\web\service\ApiService$2.class
+com\todoapp\web\service\ApiService$AuthResponse.class
+com\todoapp\web\service\ApiService$RegisterRequest.class
+com\todoapp\web\service\ApiService.class
+com\todoapp\web\service\ApiService$LoginRequest.class
+com\todoapp\web\views\TodoDialog.class
+com\todoapp\web\service\AuthService.class
+com\todoapp\web\service\ApiService$5.class
+com\todoapp\web\service\ApiService$1.class
+com\todoapp\web\service\ApiService$3.class
