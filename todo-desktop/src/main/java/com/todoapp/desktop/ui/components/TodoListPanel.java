@@ -2,7 +2,7 @@ package com.todoapp.desktop.ui.components;
 
 import com.todoapp.common.dto.TodoDto;
 import com.todoapp.common.model.Category;
-import com.todoapp.common.model.Todo;
+//import com.todoapp.common.model.Todo;
 import com.todoapp.desktop.service.ApiService;
 import com.todoapp.desktop.ui.MainFrame;
 import net.miginfocom.swing.MigLayout;

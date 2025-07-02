@@ -2,7 +2,7 @@ package com.todoapp.web.views;
 
 import com.todoapp.common.dto.TodoDto;
 import com.todoapp.common.model.Category;
-import com.todoapp.common.model.Todo;
+//import com.todoapp.common.model.Todo;
 import com.todoapp.web.service.ApiService;
 import com.todoapp.web.service.AuthService;
 import com.vaadin.flow.component.Component;
@@ -21,7 +21,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
+//import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;

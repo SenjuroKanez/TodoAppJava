@@ -3,7 +3,7 @@ package com.todoapp.desktop.ui.auth;
 import com.todoapp.common.model.User;
 import com.todoapp.desktop.service.ApiService;
 import com.todoapp.desktop.ui.MainFrame;
-// import com.todoapp.desktop.ui.dashboard.DashboardPanel;
+import com.todoapp.desktop.ui.dashboard.DashboardPanel;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -219,7 +219,7 @@ public class LoginPanel extends JPanel {
                 mainFrame.setTheme(user.getThemePreference());
                 
                 // Navigate to the main dashboard
-                // mainFrame.setPanel(new DashboardPanel(mainFrame)); // TODO: Implement dashboard panel or fix import
+                mainFrame.setPanel(new DashboardPanel(mainFrame));
             }
         };
         
@@ -227,7 +227,7 @@ public class LoginPanel extends JPanel {
     }
     
     private void showRegisterPanel() {
-        // mainFrame.setPanel(new RegisterPanel(mainFrame)); // TODO: Implement RegisterPanel or fix import
+        mainFrame.setPanel(new RegisterPanel(mainFrame));
     }
     
     private void loginWithDemo() {
@@ -243,6 +243,6 @@ public class LoginPanel extends JPanel {
         mainFrame.setCurrentUser(demoUser);
         
         // Navigate to the main dashboard
-        // mainFrame.setPanel(new DashboardPanel(mainFrame)); // TODO: Implement dashboard panel or fix import
+        mainFrame.setPanel(new DashboardPanel(mainFrame));
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
-import java.util.UUID;
+//import java.util.UUID;
 
 /**
  * Provider for JWT token generation and validation.

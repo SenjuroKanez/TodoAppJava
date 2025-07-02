@@ -1,5 +1,6 @@
 package com.todoapp.backend.service;
 
+import com.todoapp.backend.entity.CategoryEntity;
 import com.todoapp.backend.entity.TodoEntity;
 import com.todoapp.backend.exception.ResourceNotFoundException;
 import com.todoapp.backend.repository.TodoRepository;
@@ -50,10 +51,11 @@ public class TodoService {
      */
     @Transactional
     public TodoDto createTodo(TodoDto todoDto, String userId) {
-        TodoEntity todoEntity = todoDto.toModel().toEntity();
+        TodoEntity todoEntity = TodoEntity.fromModel(todoDto.toEntity());
         todoEntity.setUserId(userId);
         todoEntity.setCreatedAt(LocalDateTime.now());
         todoEntity.setUpdatedAt(LocalDateTime.now());
+        
         TodoEntity savedEntity = todoRepository.save(todoEntity);
         return TodoDto.fromEntity(savedEntity.toModel());
     }
@@ -79,8 +81,7 @@ public class TodoService {
         todoEntity.setUpdatedAt(LocalDateTime.now());
         
         if (todoDto.getCategory() != null) {
-            // Assuming setCategory accepts a Category entity and todoDto.getCategory() returns a Category entity or you have a mapper
-            todoEntity.setCategory(todoDto.getCategory());
+            todoEntity.setCategory(CategoryEntity.fromModel(todoDto.getCategory()));
         }
         
         TodoEntity updatedEntity = todoRepository.save(todoEntity);

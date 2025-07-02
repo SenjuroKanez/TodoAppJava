@@ -29,4 +29,6 @@ public class Category implements Serializable {
     public static final String COLOR_BLUE = "#118AB2";
     public static final String COLOR_PURPLE = "#9381FF";
     public static final String COLOR_PINK = "#EF476F";
+
+    
 }

@@ -32,4 +32,6 @@ public class Todo implements Serializable {
     public enum Priority {
         LOW, MEDIUM, HIGH, URGENT
     }
+    
+    
 }

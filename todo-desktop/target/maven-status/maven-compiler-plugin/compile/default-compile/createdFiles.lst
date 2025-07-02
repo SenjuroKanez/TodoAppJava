@@ -4,12 +4,15 @@ com\todoapp\desktop\TodoDesktopApplication.class
 com\todoapp\desktop\service\ApiService$5.class
 com\todoapp\desktop\service\ApiService$1.class
 com\todoapp\desktop\service\ApiService$3.class
+com\todoapp\desktop\ui\auth\RegisterPanel$1.class
+com\todoapp\desktop\ui\dashboard\DashboardPanel.class
 com\todoapp\desktop\service\ApiService$AuthResponse.class
 com\todoapp\desktop\ui\auth\LoginPanel.class
 com\todoapp\desktop\ui\components\TodoDialog.class
 com\todoapp\desktop\service\ApiService$4.class
 com\todoapp\desktop\service\ApiService$2.class
 com\todoapp\desktop\service\ApiService$RegisterRequest.class
+com\todoapp\desktop\ui\auth\RegisterPanel.class
 com\todoapp\desktop\service\ThemeManager.class
 com\todoapp\desktop\ui\MainFrame.class
 com\todoapp\desktop\service\ApiService$LoginRequest.class
