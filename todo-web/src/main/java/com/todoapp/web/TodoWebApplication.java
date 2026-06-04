@@ -1,17 +1,27 @@
 package com.todoapp.web;
 
-import com.vaadin.flow.component.page.AppShellConfigurator;
-import com.vaadin.flow.theme.Theme;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.context.annotation.Configuration;
 
-/**
- * Main application class for the Todo web client.
- */
 @SpringBootApplication
-@Theme(value = "todoapp")
-public class TodoWebApplication implements AppShellConfigurator {
+public class TodoWebApplication {
     public static void main(String[] args) {
         SpringApplication.run(TodoWebApplication.class, args);
+    }
+
+    @Configuration
+    public static class CorsConfig implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**")
+                    .allowedOriginPatterns("*")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                    .allowedHeaders("*")
+                    .exposedHeaders("*")
+                    .allowCredentials(false);
+        }
     }
 }

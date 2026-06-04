@@ -1,25 +1,154 @@
-# Logs
-logs
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.backup
+release.properties
+.flattened-pom.xml
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Java
+*.class
 *.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.jar.original
+*.classpath
+*.eclipse-ide
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.iml.bak
+out/
+
+# IDE - Eclipse
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/extensions.json
+.vscode/
+
+# IDE - NetBeans
+nbproject/
+.nb-gradle/
+
+# IDE - Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# IDE - Other
+.DS_Store
+*.swp
+*.swo
+*~
+.~*
+.*.swp
+.*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+.directory
+
+# IDE Visual Studio files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Node (if frontend uses npm/node)
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Environment files
 .env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Build outputs
+bin/
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+
+# Application logs
+logs/
+*.log
+application-*.log
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Test coverage
+coverage/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Dependencies
+.lib/
+lib/
+libs/
+
+# Spring Boot
+spring-boot-devtools.properties
+
+# Custom project files
+*.rar
+*.7z
+.vagrant/
+local.properties
+

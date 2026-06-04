@@ -3,6 +3,7 @@ package com.todoapp.backend.service;
 import com.todoapp.backend.entity.CategoryEntity;
 import com.todoapp.backend.entity.TodoEntity;
 import com.todoapp.backend.exception.ResourceNotFoundException;
+import com.todoapp.backend.repository.CategoryRepository;
 import com.todoapp.backend.repository.TodoRepository;
 import com.todoapp.common.dto.TodoDto;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TodoService {
     private final TodoRepository todoRepository;
+    private final CategoryRepository categoryRepository;
     
     /**
      * Get all todos for a user.
@@ -56,6 +58,12 @@ public class TodoService {
         todoEntity.setCreatedAt(LocalDateTime.now());
         todoEntity.setUpdatedAt(LocalDateTime.now());
         
+        if (todoDto.getCategory() != null && todoDto.getCategory().getId() != null) {
+            CategoryEntity categoryEntity = categoryRepository.findById(todoDto.getCategory().getId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + todoDto.getCategory().getId()));
+            todoEntity.setCategory(categoryEntity);
+        }
+        
         TodoEntity savedEntity = todoRepository.save(todoEntity);
         return TodoDto.fromEntity(savedEntity.toModel());
     }
@@ -80,8 +88,12 @@ public class TodoService {
         todoEntity.setPriority(todoDto.getPriority());
         todoEntity.setUpdatedAt(LocalDateTime.now());
         
-        if (todoDto.getCategory() != null) {
-            todoEntity.setCategory(CategoryEntity.fromModel(todoDto.getCategory()));
+        if (todoDto.getCategory() != null && todoDto.getCategory().getId() != null) {
+            CategoryEntity categoryEntity = categoryRepository.findById(todoDto.getCategory().getId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + todoDto.getCategory().getId()));
+            todoEntity.setCategory(categoryEntity);
+        } else {
+            todoEntity.setCategory(null);
         }
         
         TodoEntity updatedEntity = todoRepository.save(todoEntity);
