@@ -6,27 +6,20 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>4.1.1</version>
         <relativePath/>
     </parent>
     
     <groupId>com.todoapp</groupId>
-    <artifactId>todo-application</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>todoapp</artifactId>
+    <version>2.0.0</version>
     <name>Todo Application</name>
-    <description>Beautiful Todo Application with Desktop and Web Interfaces</description>
-    <packaging>pom</packaging>
-    
-    <modules>
-        <module>todo-common</module>
-        <module>todo-desktop</module>
-        <module>todo-backend</module>
-        <module>todo-web</module>
-    </modules>
+    <description>Collaborative task management with an offline-capable web workspace</description>
+    <packaging>jar</packaging>
     
     <properties>
-        <java.version>17</java.version>
-        <vaadin.version>24.2.0</vaadin.version>
+        <java.version>21</java.version>
+        <vaadin.version>25.2.8</vaadin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
@@ -42,8 +35,33 @@
         </dependencies>
     </dependencyManagement>
     
+    <dependencies>
+        <dependency><groupId>com.vaadin</groupId><artifactId>vaadin-spring-boot-starter</artifactId></dependency>
+        <dependency><groupId>com.vaadin</groupId><artifactId>hilla-spring-boot-starter</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-webmvc</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-security</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-jdbc</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-validation</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-actuator</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-flyway</artifactId></dependency>
+        <dependency><groupId>org.flywaydb</groupId><artifactId>flyway-database-postgresql</artifactId></dependency>
+        <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><scope>runtime</scope></dependency>
+        <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>2.21.2</version></dependency>
+        <dependency><groupId>nl.martijndwars</groupId><artifactId>web-push</artifactId><version>5.1.2</version></dependency>
+        <dependency><groupId>org.apache.httpcomponents</groupId><artifactId>httpclient</artifactId><version>4.5.14</version></dependency>
+        <dependency><groupId>org.bitbucket.b_c</groupId><artifactId>jose4j</artifactId><version>0.9.6</version></dependency>
+        <dependency><groupId>org.bouncycastle</groupId><artifactId>bcprov-jdk18on</artifactId><version>1.83</version></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>org.springframework.security</groupId><artifactId>spring-security-test</artifactId><scope>test</scope></dependency>
+        <!-- 2.4.240 has a CHECK-constraint cross-connection regression (h2database/h2database#4308). -->
+        <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>2.3.232</version><scope>test</scope></dependency>
+        <dependency><groupId>org.testcontainers</groupId><artifactId>testcontainers-postgresql</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>org.testcontainers</groupId><artifactId>testcontainers-junit-jupiter</artifactId><scope>test</scope></dependency>
+    </dependencies>
     <build>
         <plugins>
+            <plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin>
+            <plugin><groupId>com.vaadin</groupId><artifactId>vaadin-maven-plugin</artifactId><version>${vaadin.version}</version><executions><execution><goals><goal>prepare-frontend</goal></goals></execution></executions></plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -55,4 +73,8 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile><id>production</id><properties><vaadin.productionMode>true</vaadin.productionMode></properties><build><plugins><plugin><groupId>com.vaadin</groupId><artifactId>vaadin-maven-plugin</artifactId><executions><execution><goals><goal>build-frontend</goal></goals><phase>compile</phase></execution></executions></plugin></plugins></build></profile>
+        <profile><id>integration</id><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-failsafe-plugin</artifactId><executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions></plugin></plugins></build></profile>
+    </profiles>
 </project>

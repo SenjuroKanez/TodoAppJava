@@ -123,7 +123,7 @@ application-*.log
 
 # Maven wrapper
 .mvn/wrapper/maven-wrapper.jar
-.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.properties
 
 # Gradle
 .gradle/
@@ -151,4 +151,16 @@ spring-boot-devtools.properties
 *.7z
 .vagrant/
 local.properties
+
+# TodoApp v2
+src/main/frontend/generated/
+src/main/bundles/
+vite.generated.ts
+types.d.ts
+data/
+playwright-report/
+test-results/
+*.mv.db
+.tools/
+.vaadin-node-tasks.lock
 

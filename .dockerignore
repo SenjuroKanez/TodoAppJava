@@ -1,0 +1,9 @@
+.git
+.env
+.tools
+node_modules
+target
+todo-*
+*.log
+test-results
+playwright-report
